@@ -1,0 +1,36 @@
+services:
+
+  app:
+    build: .
+    command: tail -f /dev/null 
+    volumes:
+      - ./:/workspace:cached
+
+  pgadmin:
+    image: dpage/pgadmin4:8.9
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: geheim    
+      PGADMIN_CONFIG_WTF_CSRF_HEADERS: '["Referer", "Origin"]'
+      PGADMIN_CONFIG_WTF_CSRF_ENABLED: 'False'
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    ports:
+      - 5050:80
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12.19
+    restart: always          
+    environment: 
+      POSTGRES_USER: devtedsuser
+      POSTGRES_PASSWORD: devtedspass
+      POSTGRES_DB: demodb
+    volumes:                 
+      - pg-data:/var/lib/postgresql/data
+
+volumes:
+  pgadmin-data:
+  pg-data:
