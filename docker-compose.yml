@@ -27,7 +27,7 @@ services:
     restart: always          
     environment:
       POSTGRES_DB: northwind
-      POSTGRES_USER: postgres
+      POSTGRES_USER: pguser
       POSTGRES_PASSWORD: geheim
     volumes:                 
       - pg-data:/var/lib/postgresql/data
