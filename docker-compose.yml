@@ -1,11 +1,9 @@
 services:
 
   app:
-    build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
+    build: .
     volumes:
-      - ..:/workspace:cached
+      - ./:/workspace:cached
     command: sleep infinity
     network_mode: service:db
 
