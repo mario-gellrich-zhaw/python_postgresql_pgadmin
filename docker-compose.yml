@@ -7,7 +7,7 @@ services:
       - ./:/workspace:cached
 
   pgadmin:
-    image: dpage/pgadmin4:8.9
+    image: dpage/pgadmin4:latest
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: pgadmin@gmail.com
@@ -22,7 +22,7 @@ services:
       - db
 
   db:
-    image: postgres:12.19
+    image: postgres:latest
     restart: always          
     environment: 
       POSTGRES_USER: devtedsuser
