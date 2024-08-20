@@ -7,4 +7,4 @@ SELECT
 FROM 
   information_schema.columns 
 WHERE 
-  table_name = 'apartment_table';
+  table_name = 'customers';
