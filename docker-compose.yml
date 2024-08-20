@@ -25,10 +25,10 @@ services:
   db:
     image: postgres:latest
     restart: always          
-    environment: 
+    environment:
+      POSTGRES_DB: app
       POSTGRES_USER: app_user
-      POSTGRES_PASSWORD: geheim
-      POSTGRES_DB: app_db
+      POSTGRES_PASSWORD: app_password
     volumes:                 
       - pg-data:/var/lib/postgresql/data
 

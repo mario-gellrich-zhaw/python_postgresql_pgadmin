@@ -1,0 +1,5 @@
+jupyter
+pandas
+matplotlib
+psycopg2
+sqlalchemy
