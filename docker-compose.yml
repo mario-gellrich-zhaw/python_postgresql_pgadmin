@@ -6,6 +6,8 @@ services:
       - ./:/workspace:cached
     command: sleep infinity
     network_mode: service:db
+    depends_on:
+      - db
 
   pgadmin:
     image: dpage/pgadmin4:latest
