@@ -12,12 +12,12 @@
   "customizations": {    
     "vscode": {
       "extensions": [
-        "ms-azuretools.vscode-docker",
-        "ms-python.python",
-		"ms-toolsai.jupyter",
-		"analytic-signal.preview-pdf",
-		"ms-python.vscode-pylance",
-        "ms-python.autopep8"
+          "ms-azuretools.vscode-docker",
+          "ms-python.python",
+          "ms-toolsai.jupyter",
+          "analytic-signal.preview-pdf",
+          "ms-python.vscode-pylance",
+          "ms-python.autopep8"
       ]
     }
   },
