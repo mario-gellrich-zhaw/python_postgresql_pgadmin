@@ -28,8 +28,8 @@ services:
     image: postgres:latest
     restart: always          
     environment:
-      POSTGRES_DB: northwind
-      POSTGRES_USER: pguser
+      POSTGRES_DB: postgres
+      POSTGRES_USER: pgadmin
       POSTGRES_PASSWORD: geheim
     volumes:                 
       - pg-data:/var/lib/postgresql/data
