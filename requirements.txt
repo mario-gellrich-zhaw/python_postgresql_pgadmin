@@ -1,6 +1,6 @@
 jupyter
 pandas
 matplotlib
-psycopg2
+psycopg2-binary
 sqlalchemy
 openpyxl
