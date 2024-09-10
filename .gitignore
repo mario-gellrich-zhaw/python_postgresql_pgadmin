@@ -1,5 +1,8 @@
-tmp
-tmp/*
-pgdata
-pgdata/*
-*.log
+# Python stuff
+__pycache__/
+
+# Jupyter stuff
+.ipynb_checkpoints/
+
+# Files
+postgres_northwind_data_solution.ipynb
