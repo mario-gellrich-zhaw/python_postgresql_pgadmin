@@ -1,4 +1,6 @@
-CREATE TABLE tableName (
+DROP TABLE IF EXISTS Employees;
+
+CREATE TABLE Employees(
     EmployeeID	INT,
     LastName	VARCHAR(512),
     FirstName	VARCHAR(512),
