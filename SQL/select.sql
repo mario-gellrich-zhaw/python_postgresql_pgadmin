@@ -6,7 +6,7 @@ SELECT
     City,
     PostalCode,
     Country
-FROM 
-    Customers
-WHERE 
-    Country IN ('Germany', 'Spain', 'Portugal');
+FROM Customers
+WHERE Country IN ('Germany',
+                  'Spain',
+                  'Portugal');
