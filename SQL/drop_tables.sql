@@ -1,3 +1,4 @@
+-- Drop all tables in the public schema
 DROP TABLE IF EXISTS public.Customers CASCADE;
 DROP TABLE IF EXISTS public.Categories CASCADE;
 DROP TABLE IF EXISTS public.Employees CASCADE;

@@ -4,7 +4,8 @@ SELECT
     ProductName,
     CategoryName
 FROM Products
-INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
+ORDER BY ProductID;
 
 -- LEFT JOIN
 SELECT 
