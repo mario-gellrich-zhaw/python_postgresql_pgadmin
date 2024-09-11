@@ -1,10 +1,10 @@
---     Open pgAdmin4.
+--     Open pgAdmin 4.
 --     Connect to your PostgreSQL server.
---     Create a new / Connect to the database named 'Northwind'.
+--     Create a new / Connect to existing database named 'Northwind'.
 --     Select the Northwind database.
---     Open the the Query Tool (right click on database name -> Query Tool).
---     Copy and paste the SQL below into the query window.
---     Execute the SQL to create the Northwind database.
+--     Open the the Query Tool (right click on the database name -> Query Tool).
+--     Copy and paste the SQL commands below into the Query Tool window.
+--     Execute the SQL commands to create the Northwind database.
 
 CREATE TABLE Categories(      
     CategoryID SERIAL PRIMARY KEY,
