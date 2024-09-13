@@ -1,6 +1,6 @@
 --     Open pgAdmin 4.
 --     Connect to your PostgreSQL server.
---     Create a new / Connect to existing database named 'Northwind'.
+--     Create a new / connect to existing database named 'Northwind'.
 --     Select the Northwind database.
 --     Open the the Query Tool (right click on the database name -> Query Tool).
 --     Copy and paste the SQL commands below into the Query Tool window.
@@ -55,8 +55,8 @@ CREATE TABLE Products(
     CategoryID INTEGER,
     Unit VARCHAR(25),
     Price NUMERIC,
-	FOREIGN KEY (CategoryID) REFERENCES Categories (CategoryID),
-	FOREIGN KEY (SupplierID) REFERENCES Suppliers (SupplierID)
+    FOREIGN KEY (CategoryID) REFERENCES Categories (CategoryID),
+    FOREIGN KEY (SupplierID) REFERENCES Suppliers (SupplierID)
 );
 
 CREATE TABLE Orders(
@@ -75,8 +75,8 @@ CREATE TABLE OrderDetails(
     OrderID INTEGER,
     ProductID INTEGER,
     Quantity INTEGER,
-	FOREIGN KEY (OrderID) REFERENCES Orders (OrderID),
-	FOREIGN KEY (ProductID) REFERENCES Products (ProductID)
+    FOREIGN KEY (OrderID) REFERENCES Orders (OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Products (ProductID)
 );
 
 INSERT INTO Categories VALUES(1,'Beverages','Soft drinks, coffees, teas, beers, and ales');

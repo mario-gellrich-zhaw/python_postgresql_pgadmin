@@ -24,7 +24,7 @@ FROM Orders
 RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 ORDER BY Orders.OrderID;
 
--- FULL JOIN
+-- FULL OUTER JOIN
 SELECT
     Customers.CustomerName,
     Orders.OrderID
