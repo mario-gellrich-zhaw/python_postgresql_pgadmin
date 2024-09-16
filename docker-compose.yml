@@ -33,6 +33,7 @@ services:
       POSTGRES_PASSWORD: geheim
     volumes:                 
       - pg-data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
 
 volumes:
   pgadmin-data:
