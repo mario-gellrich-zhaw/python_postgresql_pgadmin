@@ -18,6 +18,7 @@ services:
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
       - pgadmin-data:/var/lib/pgadmin
+      - ./.devcontainer/servers.json:/pgadmin4/servers.json
     ports:
       - 5050:80
     depends_on:
