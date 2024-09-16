@@ -19,6 +19,7 @@ services:
       PGADMIN_CONFIG_WTF_CSRF_ENABLED: 'False'   
       PGADMIN_CONFIG_SERVER_MODE: 'False'
       PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+      PGPASSFILE: /pgadmin4/.pgpass
     volumes:
       - pgadmin-data:/var/lib/pgadmin
       - ./.devcontainer/servers.json:/pgadmin4/servers.json
