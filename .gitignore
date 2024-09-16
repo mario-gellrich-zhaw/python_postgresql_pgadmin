@@ -5,5 +5,5 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Files
-postgres_northwind_data_solution.ipynb
+# postgres_northwind_data_solution.ipynb
 # QUESTIONS_SOLUTION.sql
