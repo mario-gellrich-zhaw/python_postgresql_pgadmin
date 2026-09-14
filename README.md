@@ -30,9 +30,12 @@
 └─ README.md                   # Documentation (this file)
 ```
 
-## Run Docker containers (starts automatically)
+## Run Docker containers (only when it does not start automatically)
 ```bash
 VS Code -> left Menu -> search file 'docker-compose.yml' -> right click -> Compose Up
+
+# After a new Compose Up also run the followng command in the Terminal ...
+bash .devcontainer/start.sh
 ```
 
 ## Database credentials
@@ -43,15 +46,6 @@ Maintenance database: postgres
 Username: pgadmin
 Password: geheim
 ```
-
-# Known issues and how to solve them
-```bash
-1.) The pgadmin4 webpage cannot be opened
-- Check if both containers are running, if not, restart the containers.
-- Wait until the forwarded ports are visible in the Terminal.
-- Open pgadmin4 on port 5050.
-```
-
 
 ## License and credits
 This project is intended for educational/demo purposes.   
