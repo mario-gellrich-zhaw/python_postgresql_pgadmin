@@ -1,6 +1,6 @@
-jupyter
-pandas
-matplotlib
-psycopg2-binary
-sqlalchemy
-openpyxl
+jupyter==1.1.1
+pandas==3.0.5
+matplotlib==3.11.2
+psycopg2-binary==2.9.13
+sqlalchemy==2.0.52
+openpyxl==3.1.5

@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 # Brings up the docker compose stack and works around a networking quirk seen
-# on some Codespace/dev container hosts: Docker programs its per-network
-# container-to-container forwarding rule into iptables-nft, but the kernel
-# actually enforces iptables-legacy (FORWARD policy DROP there). Containers
-# can then resolve each other's DNS name but every packet between them is
-# dropped, so pgAdmin can never reach Postgres even though both are "Up".
+# on some Codespace/dev container hosts: Docker programs this network's
+# container-to-container forwarding rule into iptables-nft, but a leftover
+# iptables-legacy FORWARD chain (with policy DROP, from an earlier Docker
+# iptables-mode run) still gets evaluated by the kernel and has no matching
+# rule for this bridge. Both chains are consulted, so the legacy DROP wins
+# even though nftables says accept: containers can resolve each other's DNS
+# name but every packet between them is dropped, so pgAdmin can never reach
+# Postgres even though both are "Up". This is documented (and its fix
+# recommended) by Docker itself:
+# https://docs.docker.com/engine/network/firewall-nftables/
 # This detects that case and adds the missing rule if needed.
 set -e
 
