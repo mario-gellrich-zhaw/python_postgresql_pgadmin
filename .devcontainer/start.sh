@@ -14,6 +14,14 @@
 # This is documented (and its fix recommended) by Docker itself:
 # https://docs.docker.com/engine/network/firewall-nftables/
 # This detects that case and adds the missing rules if needed.
+#
+# The bridge gets a new name (br-<network-id>) every time the compose
+# network is recreated (e.g. `docker compose down && up`, or restarting the
+# containers via an IDE/Docker extension instead of this script), so rules
+# added for a previous bridge go stale and this whole workaround silently
+# stops applying to the new one. This script both prunes any stale rules
+# for bridges that no longer exist and (re)adds the current ones, so it's
+# safe to re-run any time connectivity looks broken.
 set -e
 
 cd "$(dirname "$0")/.."
@@ -21,6 +29,16 @@ cd "$(dirname "$0")/.."
 docker compose up -d
 
 if command -v iptables-legacy >/dev/null 2>&1; then
+  # Drop rules left behind for bridges that no longer exist.
+  while read -r br; do
+    if [ -n "$br" ] && ! ip link show "$br" >/dev/null 2>&1; then
+      sudo iptables-legacy -S FORWARD | grep -- "$br" | sed 's/^-A/-D/' | while read -r rule; do
+        sudo iptables-legacy $rule 2>/dev/null \
+          && echo "Removed stale forwarding rule for gone bridge $br"
+      done
+    fi
+  done < <(sudo iptables-legacy -S FORWARD | grep -oE 'br-[0-9a-f]+' | sort -u)
+
   CID=$(docker compose ps -q db 2>/dev/null || true)
   if [ -n "$CID" ]; then
     NET_NAME=$(docker inspect "$CID" --format '{{range $k, $v := .NetworkSettings.Networks}}{{$k}}{{end}}' 2>/dev/null || true)
